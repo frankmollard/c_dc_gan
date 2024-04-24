@@ -38,17 +38,19 @@ if distribution == "Normal":
         options=np.linspace(2,0.1,20), 
         value = 1
     )
+else:
+    m, s = 0, 0
     
-    option1 = st.sidebar.selectbox(
-        'Select Creature',
-        #('cat', 'dog', 'man', 'wild', 'woman')
-        creatures.keys() 
-    )
-    
-    option2 = st.sidebar.selectbox(
-        'Select 2nd Creature',
-        ('None', 'cat', 'dog', 'man', 'wild', 'woman')
-    )
+option1 = st.sidebar.selectbox(
+    'Select Creature',
+    #('cat', 'dog', 'man', 'wild', 'woman')
+    creatures.keys() 
+)
+
+option2 = st.sidebar.selectbox(
+    'Select 2nd Creature',
+    ('None', 'cat', 'dog', 'man', 'wild', 'woman')
+)
 
 #st.write('You selected:', option1)
 #st.write('You selected:', option2)
