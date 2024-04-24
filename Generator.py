@@ -5,7 +5,7 @@ from matplotlib import pyplot as plt
 import numpy as np
 from PIL import Image 
 
-@st.cache_resource()
+@st.cache_resource(persist=True)
 def modelloader(name):
     m = tf.keras.models.load_model(name)
     return m
@@ -49,7 +49,7 @@ option2 = st.sidebar.selectbox(
 if option2 == 'None':
     option2 = option1
 
-
+@st.cache(persist=True)
 def vizGenImg(g, sd, me, c1: int, c2: int, ttl: str):
     fig, ax = plt.subplots(1,5, figsize=(15*2,3*2))
     for j in range(5):
@@ -65,6 +65,6 @@ def vizGenImg(g, sd, me, c1: int, c2: int, ttl: str):
     return fig, ax, plt 
 
 if st.sidebar.button("Run", type="primary"):
-    for k in range(5):
+    for k in range(3):
         image, _, _=vizGenImg(generator, s, m, option1, option2, ttl=option1 if option1 ==option2 else option1 + " " + option2)
         st.pyplot(fig=image)
