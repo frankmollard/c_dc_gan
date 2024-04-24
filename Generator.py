@@ -9,6 +9,9 @@ from PIL import Image
 def modelloader(name):
     m = tf.keras.models.load_model(name)
     return m
+
+st.sidebar.write('Configuration')
+
 gen_select = st.sidebar.radio(
     "Choose Generator",
     ["Generator64mw.keras", "Generator64mw_norm_2.keras"]
