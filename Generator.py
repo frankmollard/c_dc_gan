@@ -49,7 +49,7 @@ option2 = st.sidebar.selectbox(
 if option2 == 'None':
     option2 = option1
 
-@st.cache(persist=True)
+@st.cache()
 def vizGenImg(g, sd, me, c1: int, c2: int, ttl: str):
     fig, ax = plt.subplots(1,5, figsize=(15*2,3*2))
     for j in range(5):
