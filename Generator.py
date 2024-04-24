@@ -14,7 +14,7 @@ st.sidebar.write('## Configuration')
 
 gen_select = st.sidebar.radio(
     "Choose Generator",
-    ["Generator64mw.keras", "Generator64mw_norm_2.keras", "Generator128.keras"]
+    ["Generator64mw.keras", "Generator64mw_norm_2.keras"]
 )
 
 if gen_select in ["Generator128.keras"]:
