@@ -20,6 +20,12 @@ st.write('This is the Generator of a conditional Deep Convolutional GAN')
 
 creatures = {"cat":0, "dog":1, "man":2, "wild":3, "woman":4}
 
+distribution = st.radio(
+    "Kind of Distribution",
+    ["Binomial", "Normal"],
+    ["clearer results", "more variance"]
+)
+
 m = st.sidebar.select_slider(
     'Select mean of latent space',
     options=[-0.1, 0, 0.1],
@@ -33,13 +39,13 @@ s = st.sidebar.select_slider(
 )
 
 option1 = st.sidebar.selectbox(
-    'Select Monster',
+    'Select Creature',
     #('cat', 'dog', 'man', 'wild', 'woman')
     creatures.keys() 
 )
 
 option2 = st.sidebar.selectbox(
-    'Select 2nd Monster',
+    'Select 2nd Creature',
     ('None', 'cat', 'dog', 'man', 'wild', 'woman')
 )
 
