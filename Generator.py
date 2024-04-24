@@ -5,7 +5,12 @@ from matplotlib import pyplot as plt
 import numpy as np
 from PIL import Image 
 
-generator = tf.keras.models.load_model("Generator64mw.keras")
+@st.cache_resource()
+def modelloader(name):
+    m = tf.keras.models.load_model(name)
+    return m
+
+generator = modelloader("Generator64mw.keras")
 
 st.write("""
 # Mix Creatures
