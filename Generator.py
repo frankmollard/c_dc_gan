@@ -52,11 +52,8 @@ option2 = st.sidebar.selectbox(
     ('None', 'cat', 'dog', 'man', 'wild', 'woman')
 )
 
-#st.write('You selected:', option1)
-#st.write('You selected:', option2)
-
-    if option2 == 'None':
-        option2 = option1
+if option2 == 'None':
+    option2 = option1
 
 #@st.cache()
 def vizGenImg(g, sd, me, dist, c1: int, c2: int, ttl: str):
