@@ -23,7 +23,7 @@ creatures = {"cat":0, "dog":1, "man":2, "wild":3, "woman":4}
 distribution = st.radio(
     "Kind of Distribution",
     ["Binomial", "Normal"],
-    ["clearer results", "more variance"]
+    captions = ["clearer results", "more variance"]
 )
 
 m = st.sidebar.select_slider(
