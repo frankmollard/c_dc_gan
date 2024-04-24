@@ -14,8 +14,13 @@ st.sidebar.write('## Configuration')
 
 gen_select = st.sidebar.radio(
     "Choose Generator",
-    ["Generator64mw.keras", "Generator64mw_norm_2.keras"]
+    ["Generator64mw.keras", "Generator64mw_norm_2.keras", "Generator128.keras"]
 )
+
+if gen_select in ["Generator128.keras"]:
+    imageSize = (128,128,3)
+else:
+    imageSize = (64,64,3)
 
 generator = modelloader(gen_select)
 
@@ -63,7 +68,7 @@ if option2 == 'None':
     option2 = option1
 
 #@st.cache()
-def vizGenImg(g, sd, me, dist, c1: int, c2: int, ttl: str):
+def vizGenImg(shp, g, sd, me, dist, c1: int, c2: int, ttl: str):
     fig, ax = plt.subplots(1,5, figsize=(15*2,3*2))
     for j in range(5):
         if dist == "Binomial":
@@ -73,7 +78,7 @@ def vizGenImg(g, sd, me, dist, c1: int, c2: int, ttl: str):
             xx = normal(shape=(1, 100), mean=me, stddev=sd)
         xc = tf.stack([[creatures[c1]],[creatures[c2]]], axis=1)
         img = g.predict([xx, xc], verbose=0)
-        img = Image.fromarray(((img+1)/2*255).astype('uint8').reshape((64,64,3)))
+        img = Image.fromarray(((img+1)/2*255).astype('uint8').reshape(shp))
         ax[j].axis('off')
         ax[j].imshow(img)
         ax[j].set_title(ttl, fontsize=25)
@@ -82,5 +87,5 @@ def vizGenImg(g, sd, me, dist, c1: int, c2: int, ttl: str):
 
 if st.sidebar.button("Run", type="primary"):
     for k in range(3):
-        image, _, _=vizGenImg(generator, s, m, distribution, option1, option2, ttl=option1 if option1 ==option2 else option1 + " " + option2)
+        image, _, _=vizGenImg(imageSize, generator, s, m, distribution, option1, option2, ttl=option1 if option1 ==option2 else option1 + " " + option2)
         st.pyplot(fig=image)
