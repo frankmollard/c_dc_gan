@@ -9,8 +9,12 @@ from PIL import Image
 def modelloader(name):
     m = tf.keras.models.load_model(name)
     return m
+gen_select = st.sidebar.radio(
+    "Choose Generator",
+    ["Generator64mw.keras", "Generator64mw_norm_2.keras"]
+)
 
-generator = modelloader("Generator64mw.keras")
+generator = modelloader(gen_select)
 
 st.write("""
 # Mix Creatures
