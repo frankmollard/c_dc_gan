@@ -16,12 +16,12 @@ st.write("""
 # Mix Creatures
 """)
 
-st.write('This is the Generator of a conditional Deep Convolutional GAN')
+st.write('This is the Generator of a Conditional Deep Convolutional GAN')
 
 creatures = {"cat":0, "dog":1, "man":2, "wild":3, "woman":4}
 
 distribution = st.sidebar.radio(
-    "Kind of Distribution",
+    "Kind of Distribution for Latent Space",
     ["Binomial", "Normal"],
     captions = ["clearer results", "more variance"]
 )
