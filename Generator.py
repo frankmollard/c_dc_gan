@@ -5,7 +5,7 @@ from matplotlib import pyplot as plt
 import numpy as np
 from PIL import Image 
 
-@st.cache_resource(persist=True)
+@st.cache_resource()
 def modelloader(name):
     m = tf.keras.models.load_model(name)
     return m
