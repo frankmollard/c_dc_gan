@@ -10,7 +10,7 @@ def modelloader(name):
     m = tf.keras.models.load_model(name)
     return m
 
-st.sidebar.write('Configuration')
+st.sidebar.write('## Configuration')
 
 gen_select = st.sidebar.radio(
     "Choose Generator",
