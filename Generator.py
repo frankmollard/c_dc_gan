@@ -17,10 +17,12 @@ gen_select = st.sidebar.radio(
     ["Generator64mw.keras", "Generator64mw_norm_2.keras"]
 )
 
-if gen_select in ["Generator128.keras"]:
+if gen_select in ["Generator128_norm.keras"]:
     imageSize = (128,128,3)
+    creatures = {"cat":0, "dog":1, "wild":2}
 else:
     imageSize = (64,64,3)
+    creatures = {"cat":0, "dog":1, "man":2, "wild":3, "woman":4}
 
 generator = modelloader(gen_select)
 
@@ -30,7 +32,8 @@ st.write("""
 
 st.write('This is the Generator of a Conditional Deep Convolutional GAN')
 
-creatures = {"cat":0, "dog":1, "man":2, "wild":3, "woman":4}
+
+
 
 distribution = st.sidebar.radio(
     "Kind of Distribution for Latent Space",
