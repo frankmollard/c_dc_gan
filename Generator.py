@@ -20,9 +20,11 @@ gen_select = st.sidebar.radio(
 if gen_select in ["Generator128_norm.keras"]:
     imageSize = (128,128,3)
     creatures = {"cat":0, "dog":1, "wild":2}
+    creatures_o2 = {"None": -1, "cat":0, "dog":1, "wild":2}
 else:
     imageSize = (64,64,3)
     creatures = {"cat":0, "dog":1, "man":2, "wild":3, "woman":4}
+    creatures_o2 = {"None": -1, "cat":0, "dog":1, "man":2, "wild":3, "woman":4}
 
 generator = modelloader(gen_select)
 
@@ -63,7 +65,7 @@ option1 = st.sidebar.selectbox(
 
 option2 = st.sidebar.selectbox(
     'Select 2nd Creature',
-    creatures.keys() 
+    creatures_o2.keys() 
 )
 
 if option2 == 'None':
