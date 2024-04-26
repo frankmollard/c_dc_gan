@@ -58,13 +58,12 @@ else:
     
 option1 = st.sidebar.selectbox(
     'Select Creature',
-    #('cat', 'dog', 'man', 'wild', 'woman')
     creatures.keys() 
 )
 
 option2 = st.sidebar.selectbox(
     'Select 2nd Creature',
-    ('None', 'cat', 'dog', 'man', 'wild', 'woman')
+    creatures.keys() 
 )
 
 if option2 == 'None':
