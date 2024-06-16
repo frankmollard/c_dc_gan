@@ -39,7 +39,7 @@ st.write('This is the Generator of a Conditional Deep Convolutional GAN')
 
 distribution = st.sidebar.radio(
     "Kind of Distribution for Latent Space",
-    ["Binomial", "Normal"],
+    ["Binary", "Normal"],
     captions = ["clearer results", "more variance"]
 )
 
@@ -75,7 +75,7 @@ if option2 == 'None':
 def vizGenImg(shp, g, sd, me, dist, c1: int, c2: int, ttl: str):
     fig, ax = plt.subplots(1,5, figsize=(15*2,3*2))
     for j in range(5):
-        if dist == "Binomial":
+        if dist == "Binary":
             xx = np.random.randint(2, size=(1, 100))
             xx = xx.reshape(-1,100)
         else:
